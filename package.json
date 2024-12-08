@@ -14,7 +14,7 @@
   "scripts": {
     "copy:index": "cp index.html dist/index.html && cp policy.html dist/policy.html && run-s fix-paths",
     "fix-paths": "sed -i '/https:\\/\\/.*dist\\//! s|dist/||g' dist/index.html dist/policy.html",
-    "clean": "rimraf dist/{css/*,js/*,images/*,app/*,*html}",
+    "clean": "rimraf dist/{css/*,js/*,images/*,*html}",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
     "scss": "node-sass --output-style compressed -o dist/css src/scss",
     "lint": "eslint src/js || true",
@@ -24,7 +24,6 @@
     "serve": "browser-sync start --server --files \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\" --no-open",
     "build:css": "run-s lint-scss scss autoprefixer",
     "build:js": "run-s lint uglify",
-    "build:app": "mkdir -p dist/app && cp src/app/warp-app-release.apk dist/app",
     "build:images": "run-s imagemin",
     "build": "run-s clean && run-s build:* copy:index",
     "watch:css": "onchange \"src/scss\" -- run-s build:css",
