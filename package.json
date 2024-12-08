@@ -12,7 +12,8 @@
     "url": "https://bitbucket.org/pasqualevitiello/venus/issues"
   },
   "scripts": {
-    "copy:index": "cp index.html dist/index.html && cp policy.html dist/policy.html",
+    "copy:index": "cp index.html dist/index.html && cp policy.html dist/policy.html && run-s fix-paths",
+    "fix-paths": "sed -i '/https:\\/\\/.*dist\\//! s|dist/||g' dist/index.html dist/policy.html",
     "clean": "rimraf dist/{css/*,js/*,images/*,app/*,*html}",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
     "scss": "node-sass --output-style compressed -o dist/css src/scss",
