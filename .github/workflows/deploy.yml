@@ -26,12 +26,6 @@ jobs:
     - name: Build the project
       run: npm run build
       
-    - name: Move index.html to root
-      run: mv dist/index.html .
-
-    - name: Move policy.html to root
-      run: mv dist/policy.html .
-      
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
